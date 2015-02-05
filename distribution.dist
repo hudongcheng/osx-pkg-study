@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<installer-script minSpecVersion="1.000000" authoringTool="com.apple.PackageMaker" authoringToolVersion="3.0.5" authoringToolBuild="196.1">
+    <title>Pantum M5000-M6000 Series</title>
+    <options customize="never" allow-external-scripts="no" rootVolumeOnly="true"/>
+    <license file="License"/>
+    <script>
+      function litter_than_109() {
+        var result = true;
+        result = system.compareVersions(system.version.ProductVersion, '10.9.0') &lt; 0;
+        return result;
+      }
+      function geater_equal_than_109() {
+        var result = true;
+        result = system.compareVersions(system.version.ProductVersion, '10.9.0') &gt;= 0;
+        return result;
+      }
+    </script>
+    <choices-outline>
+        <line choice="choice15"/>
+        <line choice="choice71"/>
+    </choices-outline>
+    <choice id="choice15" title="ptm5300Filter" selected="litter_than_109()" enabled="litter_than_109()">
+        <pkg-ref id="com.example.test1.pkg"/>
+    </choice>
+    <choice id="choice71" title="ptm5300Icons" selected="geater_equal_than_109()" enabled="geater_equal_than_109()">
+        <pkg-ref id="com.example.test2.pkg"/>
+    </choice>
+    <pkg-ref id="com.example.test1.pkg" auth="Root">test1-1.0.pkg</pkg-ref>
+    <pkg-ref id="com.example.test2.pkg" auth="Root">test2-1.0.pkg</pkg-ref>
+</installer-script>

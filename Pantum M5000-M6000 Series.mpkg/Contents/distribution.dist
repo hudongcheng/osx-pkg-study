@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<installer-script minSpecVersion="1.000000" authoringTool="com.apple.PackageMaker" authoringToolVersion="3.0.5" authoringToolBuild="196.1">
+    <title>Pantum M5000-M6000 Series</title>
+    <options customize="never" allow-external-scripts="no" rootVolumeOnly="true"/>
+    <license file="License"/>
+    <choices-outline>
+        <line choice="choice15"/>
+        <line choice="choice71"/>
+        <line choice="choice82"/>
+        <line choice="choice83"/>
+        <line choice="choice85"/>
+    </choices-outline>
+    <choice id="choice15" title="ptm5300Filter">
+        <pkg-ref id="com.pantum.pantumM5000M6000Series.ptm5300Filter.pkg"/>
+    </choice>
+    <choice id="choice71" title="ptm5300Icons">
+        <pkg-ref id="com.pantum.pantumM5000M6000Series.ptm5300Icons.pkg"/>
+    </choice>
+    <choice id="choice82" title="Applications">
+        <pkg-ref id="com.pantum.pantumM5000M6000Series.Applications.pkg"/>
+    </choice>
+    <choice id="choice83" title="TwainDS">
+        <pkg-ref id="com.pantum.pantumM5000M6000Series.TwainDS.pkg"/>
+    </choice>
+    <choice id="choice85" title="ptm5300105">
+        <pkg-ref id="com.pantum.pantumM5000M6000Series.ptm5300105.pkg"/>
+    </choice>
+    <pkg-ref id="com.pantum.pantumM5000M6000Series.ptm5300Filter.pkg" installKBytes="172" version="2.1" auth="Root">file:./Contents/Packages/ptm5300filter.pkg</pkg-ref>
+    <pkg-ref id="com.pantum.pantumM5000M6000Series.ptm5300Icons.pkg" installKBytes="56" version="1.0" auth="Root">file:./Contents/Packages/ptm5300icons.pkg</pkg-ref>
+    <pkg-ref id="com.pantum.pantumM5000M6000Series.Applications.pkg" installKBytes="2460" version="3.3" auth="Root">file:./Contents/Packages/applications.pkg</pkg-ref>
+    <pkg-ref id="com.pantum.pantumM5000M6000Series.TwainDS.pkg" installKBytes="6276" version="3.2" auth="Root" onConclusion="RequireRestart">file:./Contents/Packages/twainds.pkg</pkg-ref>
+    <pkg-ref id="com.pantum.pantumM5000M6000Series.ptm5300105.pkg" installKBytes="68" version="2.3" auth="Root">file:./Contents/Packages/ptm5300105.pkg</pkg-ref>
+</installer-script>
