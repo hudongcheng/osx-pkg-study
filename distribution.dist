@@ -1,30 +1,27 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
-<installer-script minSpecVersion="1.000000" authoringTool="com.apple.PackageMaker" authoringToolVersion="3.0.5" authoringToolBuild="196.1">
-    <title>Pantum M5000-M6000 Series</title>
-    <options customize="never" allow-external-scripts="no" rootVolumeOnly="true"/>
-    <license file="License"/>
-    <script>
-      function litter_than_109() {
-        var result = true;
-        result = system.compareVersions(system.version.ProductVersion, '10.9.0') &lt; 0;
-        return result;
-      }
-      function geater_equal_than_109() {
-        var result = true;
-        result = system.compareVersions(system.version.ProductVersion, '10.9.0') &gt;= 0;
-        return result;
-      }
-    </script>
+<installer-gui-script minSpecVersion="2">
+    <pkg-ref id="test1"/>
+    <pkg-ref id="test2"/>
+    <options customize="never" require-scripts="false"/>
+		<license file="License"/>
+    <volume-check>
+        <allowed-os-versions>
+            <os-version min="10.6.8"/>
+        </allowed-os-versions>
+    </volume-check>
     <choices-outline>
-        <line choice="choice15"/>
-        <line choice="choice71"/>
+        <line choice="default">
+            <line choice="test1"/>
+            <line choice="test2"/>
+        </line>
     </choices-outline>
-    <choice id="choice15" title="ptm5300Filter" selected="litter_than_109()" enabled="litter_than_109()">
-        <pkg-ref id="com.example.test1.pkg"/>
+    <choice id="default"/>
+    <choice id="test1" visible="false">
+        <pkg-ref id="test1"/>
     </choice>
-    <choice id="choice71" title="ptm5300Icons" selected="geater_equal_than_109()" enabled="geater_equal_than_109()">
-        <pkg-ref id="com.example.test2.pkg"/>
+    <pkg-ref id="test1" version="1.0" onConclusion="none">test1-1.0.pkg</pkg-ref>
+    <choice id="test2" visible="false">
+        <pkg-ref id="test2"/>
     </choice>
-    <pkg-ref id="com.example.test1.pkg" auth="Root">test1-1.0.pkg</pkg-ref>
-    <pkg-ref id="com.example.test2.pkg" auth="Root">test2-1.0.pkg</pkg-ref>
-</installer-script>
+    <pkg-ref id="test2" version="1.0" onConclusion="none">test2-1.0.pkg</pkg-ref>
+</installer-gui-script>
