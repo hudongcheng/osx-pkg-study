@@ -8,5 +8,8 @@
 
 
 mkdir -p ./dist
-productbuild --distribution ./distribution.dist --package-path ./Packages --resources ./Resources ./dist/Installer.pkg
+productbuild --distribution ./distribution.dist \
+	--package-path ./Packages \
+	--resources ./Resources \
+	./dist/Installer.pkg
 
